@@ -5,9 +5,12 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from './pages/Profile'
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
+      <Navbar />
+      
       <Routes>
         <Route path="/" element={<Explore />} />
         <Route path="/offers" element={<Offers />} />
