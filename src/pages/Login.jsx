@@ -7,15 +7,18 @@ import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const navigate = useNavigate();
 
-  function handleChange(e) {
-    e.preventDefault();
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="pageContainer">
@@ -27,18 +30,19 @@ const Login = () => {
           type="email"
           placeholder="Email"
           value={formData.email}
-          className="emailInput"
           id="email"
+          className="emailInput"
           onChange={handleChange}
         />
+
         <div className="passwordInputDiv">
           <input
-            type={showPassword ? "password" : "text"}
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
-            id="password"
             value={formData.password}
             onChange={handleChange}
             className="passwordInput"
+            id="password"
           />
           <img
             src={visibilityIcon}
@@ -50,7 +54,17 @@ const Login = () => {
         <Link to="/forgot-password" className="forgotPasswordLink">
           Forgot Password
         </Link>
+        <div className="signInBar">
+          <p className="signInText">Sign In</p>
+          <button className="signInButton">
+            <ArrowRightIcon fill="#ffffff" width={34} height={34} />
+          </button>
+        </div>
       </form>
+      {/* google auth */}
+      <Link to="/register" className="registerLink">
+        Sign Up Instead
+      </Link>
     </div>
   );
 };
