@@ -6,11 +6,16 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from './pages/Profile'
 import Navbar from "./components/Navbar";
+
+import { ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 function App() {
   return (
     <>
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Explore />} />
         <Route path="/offers" element={<Offers />} />
@@ -19,6 +24,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<ForgotPassword />} />
       </Routes>
+
+      <ToastContainer />
     </>
   );
 }

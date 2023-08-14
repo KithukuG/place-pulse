@@ -5,6 +5,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+import { toast } from "react-toastify";
+
 import { db } from "../firestore.config";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
@@ -56,7 +58,7 @@ const Register = () => {
       await setDoc(doc(db, "users", user.uid), formDatacopy);
       navigate("/");
     } catch (err) {
-      console.log(err);
+      toast.error("Failed! Check your password");
     }
   };
 

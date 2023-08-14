@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,7 +35,7 @@ const Login = () => {
         navigate("/");
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Invalid credentials!");
     }
   };
   return (
