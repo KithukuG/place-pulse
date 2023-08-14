@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -12,6 +12,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const { email, password } = formData;
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,17 +20,33 @@ const Login = () => {
 
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
+      if (userCredential.user) {
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="pageContainer">
       <header>
         <p className="pageHeader">Welcome back</p>
       </header>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           type="email"
           placeholder="Email"
-          value={formData.email}
+          value={email}
           id="email"
           className="emailInput"
           onChange={handleChange}
@@ -39,7 +56,7 @@ const Login = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            value={formData.password}
+            value={password}
             onChange={handleChange}
             className="passwordInput"
             id="password"
