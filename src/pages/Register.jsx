@@ -1,8 +1,19 @@
 import React from "react";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+
+import { db } from "../firestore.config";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 import { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
+
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
+
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 
 const Register = () => {
@@ -13,6 +24,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const { name, email, password } = formData;
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,16 +34,42 @@ const Register = () => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+
+      const formDatacopy = { ...formData };
+
+      delete formDatacopy.password;
+      formDatacopy.timestamp = serverTimestamp();
+      await setDoc(doc(db, "users", user.uid), formDatacopy);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="pageContainer">
       <header>
-        <p className="pageHeader">Welcome back</p>
+        <p className="pageHeader">Welcome to place-pulse</p>
       </header>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Name"
-          value={formData.name}
+          value={name}
           id="name"
           className="nameInput"
           onChange={handleChange}
@@ -38,7 +77,7 @@ const Register = () => {
         <input
           type="email"
           placeholder="Email"
-          value={formData.email}
+          value={email}
           id="email"
           className="emailInput"
           onChange={handleChange}
@@ -48,7 +87,7 @@ const Register = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            value={formData.password}
+            value={password}
             onChange={handleChange}
             className="passwordInput"
             id="password"
@@ -65,7 +104,7 @@ const Register = () => {
         </Link>
         <div className="signUpBar">
           <p className="signUpText">Sign Up</p>
-          <button className="signUpButton">
+          <button type="submit" className="signUpButton">
             <ArrowRightIcon fill="#ffffff" width={34} height={34} />
           </button>
         </div>
