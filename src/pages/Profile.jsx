@@ -48,8 +48,9 @@ const Profile = () => {
 
       <main>
         <div className="profileDetailsHeader">
+          <p className="profileDetailsText">Personal Details</p>
           <p
-            className="profileDetailsText"
+            className="changePersonalDetails"
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prev) => !prev);
