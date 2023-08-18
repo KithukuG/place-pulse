@@ -101,9 +101,7 @@ const Register = () => {
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
-        <Link to="/forgot-password" className="forgotPasswordLink">
-          Forgot Password
-        </Link>
+
         <div className="signUpBar">
           <p className="signUpText">Sign Up</p>
           <button type="submit" className="signUpButton">
