@@ -17,6 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import OAuth from "../components/OAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -110,6 +111,8 @@ const Register = () => {
         </div>
       </form>
       {/* google auth */}
+      <OAuth />
+
       <Link to="/login" className="registerLink">
         Login Instead
       </Link>
