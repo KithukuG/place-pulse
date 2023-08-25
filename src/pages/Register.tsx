@@ -1,23 +1,14 @@
 import React from "react";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
 
 import { toast } from "react-toastify";
-
-import { db } from "../firestore.config";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
-
-import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import OAuth from "../components/OAuth";
+import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import ArrowRightIcon from "../assets/svg/keyboardArrowRightIcon.svg";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,28 +30,6 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const auth = getAuth();
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-
-      const formDatacopy = { ...formData };
-
-      delete formDatacopy.password;
-      formDatacopy.timestamp = serverTimestamp();
-      await setDoc(doc(db, "users", user.uid), formDatacopy);
-      navigate("/");
-    } catch (err) {
-      toast.error("Failed! Check your password");
-    }
   };
 
   return (

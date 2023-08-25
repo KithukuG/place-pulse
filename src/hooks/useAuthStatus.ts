@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 const useAuthStatus = () => {
   const customRef = useRef(true);

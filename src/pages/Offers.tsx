@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
-  startAfter,
-} from "firebase/firestore";
+
 import Spinner from "../components/Spinner";
-import { db } from "../firestore.config";
+
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
 
-const Category = () => {
+const Offers = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const params = useParams();
@@ -25,7 +17,7 @@ const Category = () => {
         const listingsRef = collection(db, "listings");
         const q = query(
           listingsRef,
-          where("type", "==", params.categoryName),
+          where("offer", "==", true),
           orderBy("timestamp", "desc"),
           limit(10)
         );
@@ -44,22 +36,20 @@ const Category = () => {
         setListings(listing);
         setLoading(false);
       } catch (error) {
+        setLoading(false);
         toast.error("Failed to fetch");
       }
     };
 
     fetchListings();
-  }, [params.categoryName]);
+  }, []);
   console.log(listings);
 
-  
   return (
-    <div className="category">
+    <div className="offers">
       <header>
         <p className="pageHeader">
-          {params.categoryName === "rent"
-            ? "Places for rent"
-            : "Places for sale"}
+         Offers
         </p>
       </header>
       {loading ? (
@@ -81,10 +71,10 @@ const Category = () => {
           </main>
         </>
       ) : (
-        <p>No listings for {params.categoryName} </p>
+        <p>No listings for offers </p>
       )}
     </div>
   );
 };
 
-export default Category;
+export default Offers;
