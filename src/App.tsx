@@ -1,24 +1,15 @@
-import { Routes, Route } from "react-router-dom";
-import Explore from "./pages/Explore";
-import Offers from "./pages/Offers";
-import ForgotPassword from "./pages/ForgotPassword";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+//import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import PrivateRoute from "./components/PrivateRoute";
-import Category from "./pages/Category";
-import CreateListing from "./pages/CreateListing";
+import React from "react";
+import "./index.css";
 function App() {
   return (
     <>
       <Navbar />
-
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Explore />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/category/:categoryName" element={<Category />} />
@@ -30,7 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<ForgotPassword />} />
         <Route path="/create" element={<CreateListing />} />
-      </Routes>
+      </Routes> */}
 
       <ToastContainer />
     </>

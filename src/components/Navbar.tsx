@@ -5,21 +5,25 @@ import { ReactComponent as PersonIcon } from "../assets/svg/personOutlineIcon.sv
 import { ReactComponent as ExploreIcon } from "../assets/svg/exploreIcon.svg";
 import { ReactComponent as OfferIcon } from "../assets/svg/localOfferIcon.svg";
 
-
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const pathMatchRoute = (route) => {
+  const pathMatchRoute = (route: string): boolean => {
+
     if (route === location.pathname) {
       return true;
     }
+    return false;
   };
   return (
-    <footer className="navbar">
-      <nav className="navbarNav">
-        <ul className="navbarListItems">
-          <li onClick={() => navigate("/")} className="navbarListItem">
+    <header className="w-full justify-center items-center py-4 bg-white bottom-0 absolute">
+      <nav className="w-full justify-center items-center mx-auto ">
+        <ul className="flex justify-around text-lg font-semibold text-[#8f8f8f]">
+          <li
+            onClick={() => navigate("/")}
+            className=" justify-center sm:items-center flex sm:flex-row flex-col"
+          >
             <ExploreIcon
               fill={pathMatchRoute("/") ? "#2c2c2c" : "#8f8f8f"}
               height={36}
@@ -27,15 +31,16 @@ const Navbar = () => {
             />
             <p
               className={
-                pathMatchRoute("/")
-                  ? "navbarListItemNameActive"
-                  : "navbarListItemName"
+                pathMatchRoute("/") ? "text-[#2c2c2c]" : "text-[#8f8f8f]"
               }
             >
               Explore
             </p>
           </li>
-          <li onClick={() => navigate("/offers")} className="navbarListItem">
+          <li
+            onClick={() => navigate("/offers")}
+            className="justify-center sm:items-center flex sm:flex-row flex-col"
+          >
             <OfferIcon
               fill={pathMatchRoute("/offers") ? "#2c2c2c" : "#8f8f8f"}
               height={36}
@@ -43,15 +48,16 @@ const Navbar = () => {
             />
             <p
               className={
-                pathMatchRoute("/offers")
-                  ? "navbarListItemNameActive"
-                  : "navbarListItemName"
+                pathMatchRoute("/offers") ? "text-[#2c2c2c]" : "text-[#8f8f8f]"
               }
             >
               Offer
             </p>
           </li>
-          <li onClick={() => navigate("/profile")} className="navbarListItem">
+          <li
+            onClick={() => navigate("/profile")}
+            className="justify-center sm:items-center flex sm:flex-row flex-col"
+          >
             <PersonIcon
               fill={pathMatchRoute("/profile") ? "#2c2c2c" : "#8f8f8f"}
               height={36}
@@ -59,9 +65,7 @@ const Navbar = () => {
             />
             <p
               className={
-                pathMatchRoute("/profile")
-                  ? "navbarListItemNameActive"
-                  : "navbarListItemName"
+                pathMatchRoute("/profile") ? "text-[#2c2c2c]" : "text-[#8f8f8f]"
               }
             >
               Profile
@@ -69,7 +73,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-    </footer>
+    </header>
   );
 };
 
