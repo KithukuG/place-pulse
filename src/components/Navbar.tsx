@@ -10,19 +10,18 @@ const Navbar = () => {
   const location = useLocation();
 
   const pathMatchRoute = (route: string): boolean => {
-
     if (route === location.pathname) {
       return true;
     }
     return false;
   };
   return (
-    <header className="w-full justify-center items-center py-4 bg-white bottom-0 absolute">
+    <header className="w-full justify-center items-center py-4 bg-white bottom-0 left-0 right-0 fixed border-t-2 z-10">
       <nav className="w-full justify-center items-center mx-auto ">
-        <ul className="flex justify-around text-lg font-semibold text-[#8f8f8f]">
+        <ul className="flex justify-around text-lg font-semibold text-[#8f8f8f] w-full">
           <li
             onClick={() => navigate("/")}
-            className=" justify-center sm:items-center flex sm:flex-row flex-col"
+            className=" justify-center sm:items-center flex sm:flex-row flex-col cursor-pointer"
           >
             <ExploreIcon
               fill={pathMatchRoute("/") ? "#2c2c2c" : "#8f8f8f"}
@@ -39,7 +38,7 @@ const Navbar = () => {
           </li>
           <li
             onClick={() => navigate("/offers")}
-            className="justify-center sm:items-center flex sm:flex-row flex-col"
+            className="justify-center sm:items-center flex sm:flex-row flex-col cursor-pointer"
           >
             <OfferIcon
               fill={pathMatchRoute("/offers") ? "#2c2c2c" : "#8f8f8f"}
@@ -56,7 +55,7 @@ const Navbar = () => {
           </li>
           <li
             onClick={() => navigate("/profile")}
-            className="justify-center sm:items-center flex sm:flex-row flex-col"
+            className="justify-center sm:items-center flex sm:flex-row flex-col cursor-pointer"
           >
             <PersonIcon
               fill={pathMatchRoute("/profile") ? "#2c2c2c" : "#8f8f8f"}
