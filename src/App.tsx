@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Explore from "./pages/Explore";
 import React from "react";
 import "./index.css";
+import CreateListing from "./pages/CreateListing";
+
 function App() {
   return (
     <>
@@ -20,7 +22,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<ForgotPassword />} />
-        <Route path="/create" element={<CreateListing />} /> */}
+         */}
+        <Route path="/create" element={<CreateListing />} />
       </Routes>
 
       <ToastContainer />
