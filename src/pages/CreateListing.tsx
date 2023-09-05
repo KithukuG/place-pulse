@@ -6,7 +6,7 @@ const CreateListing = () => {
       <h1 className="text-[rgb(143,143,143)] text-4xl font-bold mb-10">
         Create a listing
       </h1>
-      <form className="mb-20">
+      <form className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
         <input
           className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
           type="text"
@@ -17,8 +17,8 @@ const CreateListing = () => {
           type="text"
           placeholder="address"
         />
-        <div>
-          <div>
+        <div className="flex justify-start items-start gap-10">
+          <div className="flex gap-5">
             <label htmlFor="rental">Rental</label>
             <input
               id="rental"
@@ -26,7 +26,7 @@ const CreateListing = () => {
               type="radio"
             />
           </div>
-          <div>
+          <div className="flex gap-5">
             <label htmlFor="hostel">Hostel</label>
             <input
               id="hostel"
@@ -80,7 +80,12 @@ const CreateListing = () => {
           type="file"
           placeholder="image"
         />
-        <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold" type="submit">Submit</button>
+        <button
+          className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
