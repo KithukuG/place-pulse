@@ -7,60 +7,80 @@ const CreateListing = () => {
         Create a listing
       </h1>
       <form className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
-        <input
-          className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-          type="text"
-          placeholder="name"
-        />
-        <input
-          className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-          type="text"
-          placeholder="address"
-        />
-        <div className="flex justify-start items-start gap-10">
-          <div className="flex gap-5">
+        <div>
+          <label htmlFor="name" className="block  mb-2">
+            Name
+          </label>
+          <input
+            id="name"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            type="text"
+          />
+        </div>
+        <div>
+          <label htmlFor="address" className="block  mb-2">
+            Address
+          </label>
+          <input
+            id="address"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            type="text"
+          />
+        </div>
+        <div className="flex justify-start items-center gap-10">
+          <div className="flex gap-5 items-center justify-center">
             <label htmlFor="rental">Rental</label>
             <input
               id="rental"
-              className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
+              className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f]"
               type="radio"
             />
           </div>
-          <div className="flex gap-5">
-            <label htmlFor="hostel">Hostel</label>
+          <div className="flex gap-5 items-center justify-center">
+            <label className="mb-2 block" htmlFor="hostel">
+              Hostel
+            </label>
             <input
               id="hostel"
-              className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
+              className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f]"
               type="radio"
             />
           </div>
         </div>
-        <div>
+
+        <div className="w-full flex items-center justify-between gap-5">
           <div>
-            {" "}
-            <label htmlFor="bedrooms">Bedrooms</label>
+            <label className="mb-2 block" htmlFor="bedrooms">
+              Bedrooms
+            </label>
             <input
               id="bedrooms"
               className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-              type="radio"
+              type="number"
             />
           </div>
           <div>
-            {" "}
-            <label htmlFor="bathrooms">Bathrooms</label>
+            <label htmlFor="bathrooms" className="mb-2 block">
+              Bathrooms
+            </label>
             <input
               id="bathrooms"
               className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-              type="radio"
+              type="number"
             />
           </div>
         </div>
-        <input
-          className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-          type="number"
-          placeholder="price"
-        />
         <div>
+          <label htmlFor="price" className="block  mb-2">
+            Price
+          </label>
+          <input
+            id="price"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            type="price"
+          />
+        </div>
+        <div className="flex items-center justify-center">
           {" "}
           <label htmlFor="offer">Offer</label>
           <input
@@ -69,17 +89,28 @@ const CreateListing = () => {
             type="checkbox"
           />
         </div>
-        <input
-          id="bathrooms"
-          className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-          type="number"
-          placeholder="people"
-        />
-        <input
-          className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full"
-          type="file"
-          placeholder="image"
-        />
+
+        <div>
+          <label htmlFor="people" className="block  mb-2">
+            Number of People
+          </label>
+          <input
+            id="people"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            type="number"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="image" className="block  mb-2">
+            Choose an Image
+          </label>
+          <input
+            id="image"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            type="file"
+          />
+        </div>
         <button
           className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold"
           type="submit"
