@@ -6,7 +6,7 @@ import Explore from "./pages/Explore";
 import React from "react";
 import "./index.css";
 import CreateListing from "./pages/CreateListing";
-
+import Login from "./pages/Login";
 function App() {
   return (
     <>
@@ -19,11 +19,12 @@ function App() {
         <Route path="/profile" element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
-        <Route path="/login" element={<Login />} />
+       
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<ForgotPassword />} />
          */}
         <Route path="/create" element={<CreateListing />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       <ToastContainer />

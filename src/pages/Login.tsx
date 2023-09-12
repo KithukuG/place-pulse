@@ -24,25 +24,11 @@ const Login = () => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      if (userCredential.user) {
-        navigate("/");
-      }
-    } catch (err) {
-      toast.error("Invalid credentials!");
-    }
   };
   return (
-    <div className="pageContainer">
+    <div className="">
       <header>
-        <p className="pageHeader">Welcome back</p>
+        <p className="">Welcome back</p>
       </header>
       <form onSubmit={onSubmit}>
         <input
@@ -50,32 +36,32 @@ const Login = () => {
           placeholder="Email"
           value={email}
           id="email"
-          className="emailInput"
+          className=""
           onChange={handleChange}
         />
 
-        <div className="passwordInputDiv">
+        <div className="">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={handleChange}
-            className="passwordInput"
+            className=""
             id="password"
           />
           <img
             src={visibilityIcon}
             alt="show password"
-            className="showPassword"
+            className=""
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
-        <Link to="/reset" className="forgotPasswordLink">
+        <Link to="/reset" className="">
           Forgot Password
         </Link>
-        <div className="signInBar">
-          <p className="signInText">Sign In</p>
-          <button className="signInButton">
+        <div className="">
+          <p className="">Sign In</p>
+          <button className="">
             <ArrowRightIcon fill="#ffffff" width={34} height={34} />
           </button>
         </div>

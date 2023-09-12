@@ -33,9 +33,9 @@ const Register = () => {
   };
 
   return (
-    <div className="pageContainer">
+    <div className="">
       <header>
-        <p className="pageHeader">Welcome to place-pulse</p>
+        <p className="">Welcome to place-pulse</p>
       </header>
       <form onSubmit={onSubmit}>
         <input
@@ -43,7 +43,7 @@ const Register = () => {
           placeholder="Name"
           value={name}
           id="name"
-          className="nameInput"
+          className=""
           onChange={handleChange}
         />
         <input
@@ -51,29 +51,29 @@ const Register = () => {
           placeholder="Email"
           value={email}
           id="email"
-          className="emailInput"
+          className=""
           onChange={handleChange}
         />
 
-        <div className="passwordInputDiv">
+        <div className="">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={handleChange}
-            className="passwordInput"
+            className=""
             id="password"
           />
           <img
             src={visibilityIcon}
             alt="show password"
-            className="showPassword"
+            className=""
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
 
-        <div className="signUpBar">
-          <p className="signUpText">Sign Up</p>
+        <div className="">
+          <p className="">Sign Up</p>
           <button type="submit" className="signUpButton">
             <ArrowRightIcon fill="#ffffff" width={34} height={34} />
           </button>
