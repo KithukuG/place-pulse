@@ -6,7 +6,7 @@ const CreateListing = () => {
       <h1 className="text-[rgb(143,143,143)] text-4xl font-bold mb-10">
         Create a listing
       </h1>
-      <form className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
+      <form className="mb-40 grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10 mx-auto">
         <div>
           <label htmlFor="name" className="block  mb-2">
             Name

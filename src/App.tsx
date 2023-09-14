@@ -7,6 +7,9 @@ import React from "react";
 import "./index.css";
 import CreateListing from "./pages/CreateListing";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+
+
 function App() {
   return (
     <>
@@ -20,11 +23,13 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Route>
        
-        <Route path="/register" element={<Register />} />
+        
         <Route path="/reset" element={<ForgotPassword />} />
          */}
         <Route path="/create" element={<CreateListing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
       </Routes>
 
       <ToastContainer />

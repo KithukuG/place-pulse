@@ -17,7 +17,7 @@ const Explore = () => {
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header className="flex flex-wrap justify-between w-full sm:w-[60%]">
-        <p className="font-bold text-4xl text-[#8f8f8f] mb-10"> Explore</p>
+        <h1 className="font-bold text-4xl text-[#8f8f8f] mb-10"> Explore</h1>
         <div className="flex justify-center items-center gap-10 mb-10">
           <input
             type="search"

@@ -33,17 +33,22 @@ const Register = () => {
   };
 
   return (
-    <div className="">
+    <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header>
-        <p className="">Welcome to place-pulse</p>
+        <p className="font-bold text-4xl text-[#8f8f8f] mb-10">
+          Welcome to place-pulse
+        </p>
       </header>
-      <form onSubmit={onSubmit}>
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col gap-5 mb-20 max-w-[500px]  "
+      >
         <input
           type="text"
           placeholder="Name"
           value={name}
           id="name"
-          className=""
+          className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
           onChange={handleChange}
         />
         <input
@@ -51,40 +56,37 @@ const Register = () => {
           placeholder="Email"
           value={email}
           id="email"
-          className=""
+          className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
           onChange={handleChange}
         />
 
-        <div className="">
+        <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={handleChange}
-            className=""
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
             id="password"
           />
           <img
             src={visibilityIcon}
             alt="show password"
-            className=""
+            className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
 
-        <div className="">
-          <p className="">Sign Up</p>
-          <button type="submit" className="signUpButton">
-            <ArrowRightIcon fill="#ffffff" width={34} height={34} />
+        <div className="w-full flex justify-between items-center">
+          <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold">
+            Sign Up
           </button>
+          <Link to="/login" className="text-[#d85555] font-semibold self-end">
+            Login Instead
+          </Link>
         </div>
       </form>
       {/* google auth */}
-      <OAuth />
-
-      <Link to="/login" className="registerLink">
-        Login Instead
-      </Link>
     </div>
   );
 };
