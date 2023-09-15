@@ -5,10 +5,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
-
-import OAuth from "../components/OAuth";
-import visibilityIcon from "../assets/svg/visibilityIcon.svg";
-import ArrowRightIcon from "../assets/svg/keyboardArrowRightIcon.svg";
+import { EyeOff, Eye } from "lucide-react";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -69,12 +66,19 @@ const Register = () => {
             className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
             id="password"
           />
-          <img
-            src={visibilityIcon}
-            alt="show password"
-            className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
-            onClick={() => setShowPassword(!showPassword)}
-          />
+          {showPassword ? (
+            <EyeOff
+              color="#8f8f8f"
+              className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+          ) : (
+            <Eye
+              color="#8f8f8f"
+              className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+          )}
         </div>
 
         <div className="w-full flex justify-between items-center">

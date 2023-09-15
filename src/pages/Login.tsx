@@ -1,12 +1,11 @@
 import React from "react";
 import { toast } from "react-toastify";
-
+import { EyeOff, Eye } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
+
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 
-import OAuth from "../components/OAuth";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -52,12 +51,19 @@ const Login = () => {
             className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
             id="password"
           />
-          <img
-            src={visibilityIcon}
-            alt="show password"
+          {showPassword ? (
+            <EyeOff
+            color="#8f8f8f"
             className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
             onClick={() => setShowPassword(!showPassword)}
-          />
+            />
+          ) : (
+              <Eye color="#8f8f8f" 
+            className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+            onClick={() => setShowPassword(!showPassword)}/>
+          )
+          }
+          
         </div>
 
         <div className="flex justify-between items-center">

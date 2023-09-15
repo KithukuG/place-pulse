@@ -8,8 +8,7 @@ import "./index.css";
 import CreateListing from "./pages/CreateListing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
-
+import ForgotPassword from "./pages/ForgotPassword";
 function App() {
   return (
     <>
@@ -24,12 +23,12 @@ function App() {
         </Route>
        
         
-        <Route path="/reset" element={<ForgotPassword />} />
+       
          */}
         <Route path="/create" element={<CreateListing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
+        <Route path="/reset" element={<ForgotPassword />} />
       </Routes>
 
       <ToastContainer />
