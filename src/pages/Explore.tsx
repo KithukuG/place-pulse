@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import listings from "../data/listings.json";
+import listings from "../data/listings";
 
 const Explore = () => {
   return (
@@ -49,7 +49,7 @@ const Explore = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper mb-20  min-h-[225px]"
         >
-          {listings.listings.map((listing) => (
+          {listings.map((listing) => (
             <SwiperSlide key={listing.id}>
               <Link to={`/house/${listing.id}`}>
                 <div className="relative w-full  mx-auto h-[23vw]">

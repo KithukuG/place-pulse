@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Spinner from "../components/Spinner";
-import data from "../data/listings.json";
+import data from "../data/listings";
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
 
@@ -11,6 +11,11 @@ const Offers = () => {
   const [loading, setLoading] = useState(true);
   const params = useParams();
 
+  useEffect(() => {
+    setListings(data);
+    setLoading(false);
+  }, [])
+
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header>
@@ -18,11 +23,11 @@ const Offers = () => {
       </header>
       {loading ? (
         <Spinner />
-      ) : data.listings && data.listings.length > 0 ? (
+      ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className="categoryListings">
-              {data.listings.map((listing) => {
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-y-20">
+              {listings.map((listing) => {
                 return (
                   listing.offer === true && <ListingItem listing={listing} />
                 );
