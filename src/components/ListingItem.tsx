@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import {Bed, Users, ShowerHead } from "lucide-react";
+import { Bed, Users, ShowerHead } from "lucide-react";
 
-interface ListingItemProps {
-  listing: {
-    id: number;
-    img: string;
-    name: string;
-    location: string;
-    type: string;
-    offer: boolean;
-    discountedPrice: number;
-    regularPrice: number;
-    bedrooms: number;
-    people: number;
-    bathrooms: number;
-  };
-}
+// interface ListingItemProps {
+//   listing: {
+//     id: number;
+//     img: string;
+//     name: string;
+//     location: string;
+//     type: string;
+//     offer: boolean;
+//     discountedPrice: number;
+//     regularPrice: number;
+//     bedrooms: number;
+//     people: number;
+//     bathrooms: number;
+//   };
+// }
 
-const ListingItem = ({ listing }: ListingItemProps) => {
+const ListingItem = ({ listing }) => {
   return (
     <li className="houseListing">
       {" "}
