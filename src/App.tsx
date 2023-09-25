@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import Offers from "./pages/Offers";
+import Profile from "./pages/Profile";
 function App() {
   return (
     <>
@@ -20,12 +21,13 @@ function App() {
         <Route path="/category/:categoryName" element={<Category />} />
 
         <Route path="/profile" element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
+          
         </Route>
        
         
        
          */}
+        <Route path="/profile" element={<Profile />} />
         <Route path="/create" element={<CreateListing />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/login" element={<Login />} />
