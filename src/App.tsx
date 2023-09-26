@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import Offers from "./pages/Offers";
 import Profile from "./pages/Profile";
+import Category from "./pages/Category";
 function App() {
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Explore />} />
         {/* 
-        <Route path="/category/:categoryName" element={<Category />} />
+        
 
         <Route path="/profile" element={<PrivateRoute />}>
           
@@ -27,6 +28,7 @@ function App() {
         
        
          */}
+        <Route path="/category/:categoryName" element={<Category />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create" element={<CreateListing />} />
         <Route path="/offers" element={<Offers />} />

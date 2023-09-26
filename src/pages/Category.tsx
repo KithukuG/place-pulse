@@ -5,6 +5,7 @@ import Spinner from "../components/Spinner";
 
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
+import data from "data/listings";
 
 const Category = () => {
   const [listings, setListings] = useState(null);
@@ -12,46 +13,22 @@ const Category = () => {
   const params = useParams();
 
   useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        const listingsRef = collection(db, "listings");
-        const q = query(
-          listingsRef,
-          where("type", "==", params.categoryName),
-          orderBy("timestamp", "desc"),
-          limit(10)
-        );
-
-        const querySnap = await getDocs(q);
-
-        const listing = [];
-
-        querySnap.forEach((doc) => {
-          listing.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-        });
-
-        setListings(listing);
-        setLoading(false);
-      } catch (error) {
-        toast.error("Failed to fetch");
-      }
-    };
-
-    fetchListings();
+    if (params.categoryName === "rental") {
+      setListings(data.filter((listing) => listing.type === "rental"));
+    } else if (params.categoryName === "hostel") {
+      setListings(data.filter((listing) => listing.type === "hostel"));
+    }
+    setLoading(false);
   }, [params.categoryName]);
   console.log(listings);
 
-  
   return (
-    <div className="category">
+    <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header>
-        <p className="pageHeader">
-          {params.categoryName === "rent"
+        <p className="font-bold text-4xl text-[#8f8f8f] mb-10">
+          {params.categoryName === "rental"
             ? "Places for rent"
-            : "Places for sale"}
+            : "Hostels available"}
         </p>
       </header>
       {loading ? (
@@ -59,15 +36,9 @@ const Category = () => {
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className="categoryListings">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-y-20">
               {listings.map((listing) => {
-                return (
-                  <ListingItem
-                    listing={listing.data}
-                    key={listing.id}
-                    id={listing.id}
-                  />
-                );
+                return <ListingItem listing={listing} key={listing.id} />;
               })}
             </ul>
           </main>

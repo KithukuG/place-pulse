@@ -22,9 +22,10 @@ const Explore = () => {
           <input
             type="search"
             placeholder="Enter location"
-            className="px-5 py-3 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full  sm:mb-0"
+            className="px-5 py-3 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full  sm:mb-0 text-[#8f8f8f]"
           />
-          <button className="bg-[#8f8f8f] py-3 px-5 rounded-md">
+          <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4">
+            <p className="text-white bg-[#8f8f8f] font-semibold">Search</p>
             <ArrowRight stroke="white " />
           </button>
         </div>

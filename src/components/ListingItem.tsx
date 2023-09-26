@@ -7,24 +7,24 @@ const ListingItem = ({ listing }) => {
   return (
     <li className="">
       <Link
-        className="grid grid-cols-1 sm:grid-cols-2 gap-5 "
+        className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-fit border z-10 shadow-sm rounded-md"
         to={`/house/${listing.id}`}
       >
-        <div className="h-full max-h-[200px] max-w-[300px] w-full">
+        <div className="h-full max-w-[300px] w-full">
           <img
             className="w-full h-full  object-cover rounded-md"
             src={listing.img}
             alt={listing.name}
           />
         </div>
-        <div className="flex flex-col gap-5 text-[#8f8f8f]">
+        <div className="flex flex-col gap-5 text-[#8f8f8f] p-3 ">
           <p className="font-semibold text-xl">{listing.name}</p>
           <p className="">{listing.location}</p>
           <p className="">
             {listing.type === "rental" ? "Rent: " : "Hostel: "}
             Ksh.{" "}
             {listing.offer ? listing.discountedPrice : listing.regularPrice}
-            {listing.type === "rental" && "/ month"}
+            / month
           </p>
           <div className="flex gap-5">
             <div>
