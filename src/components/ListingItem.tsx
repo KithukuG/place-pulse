@@ -7,7 +7,7 @@ const ListingItem = ({ listing }) => {
   return (
     <li className="">
       <Link
-        className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-5 "
         to={`/house/${listing.id}`}
       >
         <div className="h-full max-h-[200px] max-w-[300px] w-full">
