@@ -12,7 +12,8 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import listings from "../data/listings";
-import GoogleMap from "components/GoogleMap";
+
+import PlaceMap from "components/PlaceMap";
 
 const Explore = () => {
   return (
@@ -115,12 +116,13 @@ const Explore = () => {
         </div>
         <div>
           <h3 className="text-[#8f8f8f] text-2xl  font-semibold mb-3">
-            Pick your location
+            Our Locations
           </h3>
           {/*google map */}
 
-          <GoogleMap />
-
+          <div id="map" className="rounded-md">
+            <PlaceMap />
+          </div>
         </div>
       </main>
     </div>
