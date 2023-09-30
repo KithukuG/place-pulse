@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import rentCategory from "../assets/jpg/rentCategoryImage.jpg";
 import sellCategory from "../assets/jpg/sellCategoryImage.jpg";
 import { Link } from "react-router-dom";
@@ -14,23 +14,18 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import listings from "../data/listings";
 
 import PlaceMap from "components/PlaceMap";
+import LocationMap from "components/LocationMap";
+
 
 const Explore = () => {
+ 
+
+
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header className="flex flex-wrap justify-between w-full sm:w-[60%]">
         <h1 className="font-bold text-4xl text-[#8f8f8f] mb-10"> Explore</h1>
-        <div className="flex justify-center items-center gap-10 mb-10">
-          <input
-            type="search"
-            placeholder="Enter location"
-            className="px-5 py-3 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full  sm:mb-0 text-[#8f8f8f]"
-          />
-          <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4">
-            <p className="text-white bg-[#8f8f8f] font-semibold">Search</p>
-            <ArrowRight stroke="white " />
-          </button>
-        </div>
+        
       </header>
 
       <main className="mb-[200px]">
@@ -120,9 +115,7 @@ const Explore = () => {
           </h3>
           {/*google map */}
 
-          <div id="map" className="rounded-md">
-            <PlaceMap />
-          </div>
+       <PlaceMap/>
         </div>
       </main>
     </div>
