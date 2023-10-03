@@ -14,18 +14,12 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import listings from "../data/listings";
 
 import PlaceMap from "components/PlaceMap";
-import LocationMap from "components/LocationMap";
-
 
 const Explore = () => {
- 
-
-
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header className="flex flex-wrap justify-between w-full sm:w-[60%]">
         <h1 className="font-bold text-4xl text-[#8f8f8f] mb-10"> Explore</h1>
-        
       </header>
 
       <main className="mb-[200px]">
@@ -115,7 +109,8 @@ const Explore = () => {
           </h3>
           {/*google map */}
 
-       <PlaceMap/>
+          <PlaceMap />
+     
         </div>
       </main>
     </div>
