@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 const AddressPicker = ({ onClose, onPick }) => {
-
   const [addresses, setAddresses] = useState([]);
-  const [query, setQuery] = useState("");
-  
+  const [query, setQuery] = useState("Kenya");
+  const [placeholder, setPlaceholder] = useState("");
   useEffect(() => {
     const fetchLocations = async () => {
       const response = await fetch(`https://geocode.maps.co/search?q=${query}`);
@@ -16,7 +15,12 @@ const AddressPicker = ({ onClose, onPick }) => {
       fetchLocations();
     }
   }, [query]);
-  
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setQuery(placeholder);
+  };
+
   return (
     <div className="bg-black bg-opacity-20 bottom-0 top-0 left-0 right-0 absolute  z-10 flex items-center justify-center">
       <div className="bg-white z-30 shadow-md w-[90%] md:w-[60%] h-fit rounded-md relative">
@@ -37,8 +41,12 @@ const AddressPicker = ({ onClose, onPick }) => {
               type="search"
               placeholder="Search for a location"
               className="bg-[#eaeaea] px-5 py-2 rounded border-0 ring-0 outline-none w-full sm:w-[60%] mb-5 sm:mb-0"
+              onChange={(e) => setPlaceholder(e.target.value)}
             />
-            <button className="bg-[#9c9020] text-white px-5 py-2 rounded-md ml-2">
+            <button
+              onClick={handleClick}
+              className="bg-[#dad17f] text-white px-5 py-2 rounded-md ml-2"
+            >
               Search
             </button>
           </div>
@@ -46,11 +54,11 @@ const AddressPicker = ({ onClose, onPick }) => {
           <div className="flex flex-col  overflow-y-scroll max-h-[200px]">
             {addresses.map((address, index) => (
               <p
-                onClick={() => onPick(address)}
+                onClick={() => onPick(address.display_name)}
                 key={index}
                 className="text-[#8f8f8f] mb-2 border cursor-pointer rounded-md p-2"
               >
-                {address}
+                {address.display_name}
               </p>
             ))}
           </div>
