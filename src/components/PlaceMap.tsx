@@ -43,6 +43,7 @@ const PlaceMap = () => {
   const handleSearch = (e) => {
     setPlaceholder(e.target.value);
   };
+
   const handleClick = (e) => {
     setQuery(placeholder);
   };
@@ -51,11 +52,10 @@ const PlaceMap = () => {
     if (locations[0]) {
       let lat = parseFloat(locations[0]?.lat).toFixed(6);
       let lng = parseFloat(locations[0]?.lon).toFixed(6);
-      setCenter((center) => ({
-        ...center,
+      setCenter({
         lat: parseFloat(lat),
         lng: parseFloat(lng),
-      }));
+      });
     }
   }, [locations, query]);
 
@@ -84,7 +84,6 @@ const PlaceMap = () => {
         <TileLayer
           attribution='&amp;copy <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
           url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=miqXZcvOx8t01C3g4maN"
-          
         />
 
         <Marker position={center}>
